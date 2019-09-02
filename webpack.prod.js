@@ -11,10 +11,10 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   mode: 'production',
   devtool: false,
-  output: {
-    filename: 'js/[name].[chunkhash].js',
-    chunkFilename: 'js/[name].[chunkhash].js',
-  },
+  // output: {
+  //   filename: 'js/[name].[chunkhash].js',
+  //   chunkFilename: 'js/[name].[chunkhash].js',
+  // },
   module: {
     rules: [
       {

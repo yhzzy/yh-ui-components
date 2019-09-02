@@ -11,7 +11,10 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: isProd ? '' : '/',
+    publicPath: isProd ? '/dist/' : '/',
+    library: 'Yh',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.less'],
@@ -95,9 +98,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'webpack构建',
+      title: 'yh-ui组件库',
       template: path.resolve(__dirname, 'public/index.html'),
-      favicon: path.resolve(__dirname, 'public/favicon.ico'),
       minify: {
         collapseWhitespace: true,
         removeRedundantAttributes: true,

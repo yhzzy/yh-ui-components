@@ -14,7 +14,8 @@
   },
   "author": "yhzzy <176145910@qq.com>",
   "license": "MIT",
-  "main": "dist/yh-ui-components.min.js",
+  "main": "dist/yh.js",
+  "homepage": "git+https://github.com/yhzzy/yh-ui-components.git",
   "bugs": {
     "url": "https://github.com/yhzzy/yh-ui-components/issues"
   },

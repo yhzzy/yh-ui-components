@@ -10,14 +10,13 @@ const PORT = process.env.PORT && Number(process.env.PORT);
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   devServer: {
     clientLogLevel: 'warning',
     compress: true,
     hot: true,
     historyApiFallback: true,
     overlay: {
-      warnings: true,
       errors: true,
     },
     host: HOST || 'localhost',
