@@ -1,0 +1,118 @@
+{
+  "name": "yh-ui-components",
+  "sideEffects": [
+    "*.vue"
+  ],
+  "version": "0.1.0",
+  "description": "yh-ui-components",
+  "private": false,
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --profile --progress --config webpack.prod.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --progress --config webpack.dev.js",
+    "test": "cross-env NODE_ENV=production webpack --profile --progress --config webpack.test.js",
+    "pre-commit": "lint-staged"
+  },
+  "author": "yhzzy <176145910@qq.com>",
+  "license": "MIT",
+  "main": "dist/yh-ui-components.min.js",
+  "bugs": {
+    "url": "https://github.com/yhzzy/yh-ui-components/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yhzzy/yh-ui-components.git"
+  },
+  "keywords": [
+    "yh",
+    "components"
+  ],
+  "files": [
+    "dist",
+    "src/lib"
+  ],
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "element-ui": "^2.12.0",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@babel/runtime-corejs2": "^7.5.5",
+    "autoprefixer": "^9.6.1",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.0-beta.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^3.0.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^3.2.0",
+    "cssnano": "^4.1.10",
+    "csv-loader": "^3.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "exports-loader": "^0.7.0",
+    "expose-loader": "^0.7.5",
+    "express": "^4.17.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^4.2.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.4",
+    "imports-loader": "^0.8.0",
+    "less": "^3.10.1",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^9.2.3",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-notifier": "^5.4.3",
+    "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-url": "^8.0.0",
+    "prettier": "^1.18.2",
+    "sass-loader": "^7.2.0",
+    "style-loader": "^1.0.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-order": "^3.0.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^2.1.0",
+    "vue-loader": "^15.7.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1",
+    "xml-loader": "^1.2.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "lint-staged": {
+    "src/**/*.{js,json,css,less,vue}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "**/*.less": "stylelint --syntax less"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
+  }
+}
