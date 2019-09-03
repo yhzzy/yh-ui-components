@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <yh-query :model="model" :config="config" @search="search"></yh-query>
+    <yh-dashboard-card>
+      <h3 slot="title">测试标题</h3>
+      <p>我是测试的内容</p>
+      <small slot="desc">我是测试的描述信息</small>
+    </yh-dashboard-card>
   </div>
 </template>
 

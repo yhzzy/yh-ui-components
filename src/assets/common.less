@@ -1,4 +1,5 @@
-@import 'commonColor';
+@import "color";
+@import "less/all";
 
 html,
 body {
@@ -6,7 +7,7 @@ body {
 }
 
 body {
-  color: @fontColor;
+  color: @mainFontColor;
   padding: 0;
   margin: 0;
   font: 14px/20px 'Hiragino Sans GB', 'Microsoft Yahei', SimSun, Arial, 'Helvetica Neue', Helvetica;
@@ -30,4 +31,24 @@ li {
 .clear::after {
   display: table;
   content: '';
+}
+
+.yh-normal-font-color {
+  color: @normalFontColor;
+}
+
+.yh-desc-font-color {
+  color: @descFontColor;
+}
+
+.yh-background-color {
+  background: @backgroundColor;
+}
+
+.yh-border-color {
+  border-color: @borderColor;
+}
+
+.yh-mask-color {
+  background: @maskColor;
 }

@@ -29,7 +29,7 @@
   ],
   "files": [
     "dist",
-    "src/lib"
+    "src/components"
   ],
   "dependencies": {
     "babel-polyfill": "^6.26.0",

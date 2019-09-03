@@ -12,7 +12,7 @@ module.exports = merge(common, {
   mode: 'production',
   devtool: '#source-map',
   output: {
-    filename: 'yhUI.min.js',
+    filename: '[name].min.js',
     library: 'YhUI',
     libraryTarget: 'umd',
     umdNamedDefine: true,
@@ -49,8 +49,7 @@ module.exports = merge(common, {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash].css',
-      chunkFilename: 'css/[id].[hash].css',
+      filename: 'css/yhUI.css',
     }),
     new CompressionPlugin({
       filename: '[path].gz[query]',
