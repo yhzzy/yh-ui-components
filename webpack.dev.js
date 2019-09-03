@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const notifier = require('node-notifier');
 const common = require('./webpack.common.js');
@@ -57,6 +58,16 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      title: 'yh-ui组件库',
+      template: path.resolve(__dirname, 'public/index.html'),
+      minify: {
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        removeComments: true,
+        removeAttributeQuotes: true,
+      },
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),

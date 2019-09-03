@@ -10,11 +10,13 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: false,
-  // output: {
-  //   filename: 'js/[name].[chunkhash].js',
-  //   chunkFilename: 'js/[name].[chunkhash].js',
-  // },
+  devtool: '#source-map',
+  output: {
+    filename: 'yhUI.min.js',
+    library: 'YhUI',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+  },
   module: {
     rules: [
       {
@@ -32,39 +34,11 @@ module.exports = merge(common, {
     hints: false,
   },
   optimization: {
-    splitChunks: {
-      chunks: 'initial',
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          priority: 10,
-          enforce: true,
-        },
-        elementUI: {
-          test: /[\\/]node_modules[\\/]element-ui[\\/]/,
-          name: 'ele-ui',
-          priority: 20,
-        },
-        commons: {
-          name: 'commons',
-          test: path.resolve(__dirname, 'src/components'),
-          minChunks: 2,
-          priority: 5,
-          reuseExistingChunk: true,
-        },
-      },
-    },
-    runtimeChunk: {
-      name: 'manifest',
-    },
-    moduleIds: 'hashed',
-    namedChunks: true,
     minimizer: [
       new UglifyJSPlugin({
         cache: true,
         parallel: true,
-        sourceMap: false,
+        sourceMap: true,
       }),
       new OptimizeCSSAssetsPlugin(),
     ],

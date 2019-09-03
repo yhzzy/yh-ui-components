@@ -1,20 +1,16 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: {
-    app: './src/main.js',
+    app: isProd ? './src/index.js' : './src/main.js',
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: isProd ? '/dist/' : '/',
-    library: 'Yh',
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.less'],
@@ -97,16 +93,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'yh-ui组件库',
-      template: path.resolve(__dirname, 'public/index.html'),
-      minify: {
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        removeComments: true,
-        removeAttributeQuotes: true,
-      },
-    }),
     new VueLoaderPlugin(),
   ],
 };
