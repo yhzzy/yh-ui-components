@@ -6,6 +6,10 @@
       <p>我是测试的内容</p>
       <small slot="desc">我是测试的描述信息</small>
     </yh-dashboard-card>
+    <yh-block-title title="测试标题"></yh-block-title>
+    <yh-block-title title="测试插槽标题">
+      <i slot="icon" class="el-icon-edit slot-icon"></i>
+    </yh-block-title>
   </div>
 </template>
 
