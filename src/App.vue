@@ -10,6 +10,14 @@
     <yh-block-title title="测试插槽标题">
       <i slot="icon" class="el-icon-edit slot-icon"></i>
     </yh-block-title>
+    <yh-card shadow="hover">
+      <div slot="header">
+        <yh-block-title title="测试标题"></yh-block-title>
+      </div>
+      <p>测试的内容</p>
+    </yh-card>
+    <yh-week-range :week-times.sync="weekTimes" :week-config="weekConfig"></yh-week-range>
+    <el-button @click="showValue"></el-button>
   </div>
 </template>
 
@@ -96,11 +104,22 @@ export default {
           ],
         },
       ],
+      weekTimes: '',
+      weekConfig: {
+        pickerOptions: {
+          disabledDate: time => {
+            return time.getTime() > Date.now();
+          },
+        },
+      },
     };
   },
   methods: {
     search(params) {
       console.log(params);
+    },
+    showValue() {
+      console.log(this.weekTimes);
     },
   },
 };
