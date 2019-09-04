@@ -1,7 +1,7 @@
 <template>
   <div class="yh-week-range">
     <el-date-picker
-      v-model="weekTimesNum"
+      v-model="weekTimesNumData"
       type="daterange"
       range-separator="至"
       format="yyyy"
@@ -11,8 +11,8 @@
       @change="changeWeeks"
     >
     </el-date-picker>
-    <span class="yh-week-range-start-mask">{{ startWeek }}</span>
-    <span class="yh-week-range-end-mask">{{ endWeek }}</span>
+    <span class="yh-week-range-start-mask">{{ weekData.startWeek }}</span>
+    <span class="yh-week-range-end-mask">{{ weekData.endWeek }}</span>
   </div>
 </template>
 
@@ -35,23 +35,41 @@ export default {
   },
   data() {
     return {
-      weekTimesNum: this.$props.weekTimes,
-      startWeek: '',
-      endWeek: '',
+      weekTimesNumData: '',
+      weekData: {
+        startWeek: '',
+        endWeek: '',
+      },
     };
+  },
+  computed: {
+    weekTimesNum: {
+      get() {
+        const vm = this;
+        vm.weekTimesNumData = vm.$props.weekTimes;
+        return vm.weekTimesNumData;
+      },
+      set(newValue) {
+        const vm = this;
+        vm.weekTimesNumData = newValue;
+      },
+    },
   },
   methods: {
     changeWeeks(value) {
       const vm = this;
+      if (value === null || value === '') {
+        return Object.assign(vm.$data.weekData, vm.$options.data().weekData);
+      }
       vm.$emit('update:weekTimes', value.join(','));
-      vm.getYearWeek(value);
+      return vm.getYearWeek(value);
     },
     getYearWeek(date) {
       const vm = this;
       const start = date[0];
       const end = date[1];
-      vm.startWeek = moment(start).format('YYYY 第 WW 周');
-      vm.endWeek = moment(end).format('YYYY 第 WW 周');
+      vm.weekData.startWeek = moment(start).format('YYYY 第 WW 周');
+      vm.weekData.endWeek = moment(end).format('YYYY 第 WW 周');
     },
   },
 };
