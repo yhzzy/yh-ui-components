@@ -23,6 +23,11 @@ li {
   list-style-type: none;
 }
 
+p, h1, h2, h3, h4, h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .clear {
   overflow: hidden;
 }
@@ -31,6 +36,10 @@ li {
 .clear::after {
   display: table;
   content: '';
+}
+
+.yh-main-font-color {
+  color: @mainFontColor;
 }
 
 .yh-normal-font-color {

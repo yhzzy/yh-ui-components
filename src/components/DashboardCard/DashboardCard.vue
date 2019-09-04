@@ -1,10 +1,10 @@
 <template>
   <div class="yh-card">
-    <el-card class="box-card">
-      <div class="yh-card-title" :style="titleStyle">
+    <el-card class="box-card" :shadow="shadow">
+      <div class="yh-card-title yh-normal-font-color" :style="titleStyle">
         <slot name="title"></slot>
       </div>
-      <div class="yh-card-content" :style="contentStyle">
+      <div class="yh-card-content yh-main-font-color" :style="contentStyle">
         <slot></slot>
       </div>
       <div class="yh-card-desc yh-normal-font-color" :style="descStyle">
@@ -35,6 +35,10 @@ export default {
       default: () => {
         return {};
       },
+    },
+    shadow: {
+      type: String,
+      default: 'hover',
     },
   },
 };
