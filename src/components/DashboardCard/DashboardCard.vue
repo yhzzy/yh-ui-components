@@ -1,5 +1,5 @@
 <template>
-  <div class="yh-card">
+  <div class="yh-dashboard-card">
     <el-card class="box-card" :shadow="shadow">
       <div class="yh-card-title yh-normal-font-color" :style="titleStyle">
         <slot name="title"></slot>
