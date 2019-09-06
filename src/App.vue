@@ -17,7 +17,8 @@
       <p>测试的内容</p>
     </yh-card>
     <yh-week-range :week-times.sync="weekTimes" :week-config="weekConfig"></yh-week-range>
-    <el-button @click="showValue"></el-button>
+    <el-button @click="showValue">showValue</el-button>
+    <yh-switch-datepicker v-model="timeValue"></yh-switch-datepicker>
   </div>
 </template>
 
@@ -36,14 +37,14 @@ export default {
         {
           type: 'input',
           prop: 'name',
-          config: {
+          elementConfig: {
             placeholder: '请输入姓名',
           },
         },
         {
           type: 'input',
           prop: 'age',
-          config: {
+          elementConfig: {
             placeholder: '请输入年龄',
           },
         },
@@ -51,7 +52,7 @@ export default {
           type: 'select',
           prop: 'sexy',
           optionGroup: false,
-          config: {
+          elementConfig: {
             placeholder: '请选择性别',
           },
           value: 'id',
@@ -70,7 +71,7 @@ export default {
         {
           type: 'select',
           prop: 'loveCity',
-          config: {
+          elementConfig: {
             placeholder: '请选择喜爱的城市',
           },
           optionGroup: true,
@@ -112,15 +113,12 @@ export default {
           },
         },
       },
+      timeValue: Date.now(),
     };
   },
   methods: {
-    search(params) {
-      console.log(params);
-    },
-    showValue() {
-      console.log(this.weekTimes);
-    },
+    search() {},
+    showValue() {},
   },
 };
 </script>

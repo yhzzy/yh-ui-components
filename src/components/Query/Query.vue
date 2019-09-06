@@ -1,21 +1,21 @@
 <template>
   <div class="yh-query">
-    <el-form :inline="true" :model="queryParams" v-bind="{ ...formConfig }">
+    <el-form :inline="true" :model="queryParams" v-bind="{ ...elementFormConfig }">
       <el-form-item
         v-for="(item, index) in config"
         :key="index"
         :label="item.label"
-        v-bind="{ ...formItemConfig }"
+        v-bind="{ ...elementFormItemConfig }"
       >
         <el-input
           v-if="item.type === 'input'"
           v-model="queryParams[item.prop]"
-          v-bind="{ ...item.config }"
+          v-bind="{ ...item.elementConfig }"
         ></el-input>
         <el-select
           v-if="item.type === 'select'"
           v-model="queryParams[item.prop]"
-          v-bind="{ ...item.config }"
+          v-bind="{ ...item.elementConfig }"
         >
           <div v-if="!item.optionGroup">
             <el-option
@@ -46,10 +46,10 @@
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" v-bind="{ ...btnConfig }" @click="searchForm(false)">
+        <el-button type="primary" v-bind="{ ...elementBtnConfig }" @click="searchForm(false)">
           查询
         </el-button>
-        <el-button type="primary" v-bind="{ ...btnConfig }" @click="searchForm(true)">
+        <el-button type="primary" v-bind="{ ...elementBtnConfig }" @click="searchForm(true)">
           重置
         </el-button>
       </el-form-item>
@@ -69,19 +69,19 @@ export default {
       type: Array,
       required: true,
     },
-    formConfig: {
+    elementFormConfig: {
       type: Object,
       default: () => {
         return {};
       },
     },
-    formItemConfig: {
+    elementFormItemConfig: {
       type: Object,
       default: () => {
         return {};
       },
     },
-    btnConfig: {
+    elementBtnConfig: {
       type: Object,
       default: () => {
         return {};

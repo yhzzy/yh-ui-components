@@ -7,7 +7,7 @@
       format="yyyy"
       start-placeholder="开始周数"
       end-placeholder="结束周数"
-      v-bind="{ ...weekConfig }"
+      v-bind="{ ...elementConfig }"
       @change="changeWeeks"
     >
     </el-date-picker>
@@ -26,7 +26,7 @@ export default {
       type: String,
       required: true,
     },
-    weekConfig: {
+    elementConfig: {
       type: Object,
       default: () => {
         return {};
