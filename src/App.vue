@@ -19,7 +19,7 @@
     <yh-week-range :week-times.sync="weekTimes" :week-config="weekConfig"></yh-week-range>
     <el-button @click="showValue">showValue</el-button>
     <yh-switch-datepicker v-model="timeValue" :element-config="weekConfig"></yh-switch-datepicker>
-    <yh-number-grow v-model="counts" :duration="5"></yh-number-grow>
+    <yh-num-counts v-model="counts" :duration="5"></yh-num-counts>
   </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
   name: 'App',
   data() {
     return {
-      counts: 60000,
+      counts: 126560,
       model: {
         name: '',
         age: '',

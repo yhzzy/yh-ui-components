@@ -1,10 +1,10 @@
 <template>
-  <span>{{ counts }}</span>
+  <span class="yh-num-counts">{{ counts }}</span>
 </template>
 
 <script>
 export default {
-  name: 'NumberGrow',
+  name: 'NumCounts',
   props: {
     duration: {
       type: Number,
@@ -13,6 +13,10 @@ export default {
     value: {
       type: Number,
       required: true,
+    },
+    decimal: {
+      type: Number,
+      default: 0,
     },
   },
   data() {
@@ -27,6 +31,7 @@ export default {
   methods: {
     numberGrow() {
       const vm = this;
+      const { decimal } = vm;
       const step = (vm.value * 10) / (vm.duration * 1000);
       let current = 0;
       let start = 0;
@@ -41,7 +46,7 @@ export default {
           return;
         }
         current = start;
-        vm.counts = current;
+        vm.counts = current.toFixed(decimal);
       }, 10);
     },
   },
