@@ -11,6 +11,10 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   mode: 'production',
   devtool: '#source-map',
+  entry: {
+    yhUIStyle: './src/style.js',
+    yhUI: './src/index.js',
+  },
   output: {
     filename: '[name].min.js',
     library: 'YhUI',

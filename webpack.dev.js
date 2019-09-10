@@ -21,7 +21,7 @@ module.exports = merge(common, {
       errors: true,
     },
     host: HOST || 'localhost',
-    port: PORT || 3003,
+    port: PORT || 3033,
     proxy: {
       '/api': {
         target: 'http://localhost:3000',

@@ -18,7 +18,8 @@
     </yh-card>
     <yh-week-range :week-times.sync="weekTimes" :week-config="weekConfig"></yh-week-range>
     <el-button @click="showValue">showValue</el-button>
-    <yh-switch-datepicker v-model="timeValue"></yh-switch-datepicker>
+    <yh-switch-datepicker v-model="timeValue" :element-config="weekConfig"></yh-switch-datepicker>
+    <yh-number-grow v-model="counts" :duration="5"></yh-number-grow>
   </div>
 </template>
 
@@ -27,6 +28,7 @@ export default {
   name: 'App',
   data() {
     return {
+      counts: 60000,
       model: {
         name: '',
         age: '',
@@ -111,6 +113,7 @@ export default {
           disabledDate: time => {
             return time.getTime() > Date.now();
           },
+          firstDayOfWeek: 1,
         },
       },
       timeValue: Date.now(),
@@ -118,7 +121,9 @@ export default {
   },
   methods: {
     search() {},
-    showValue() {},
+    showValue() {
+      console.log(this.timeValue);
+    },
   },
 };
 </script>
