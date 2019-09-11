@@ -10,6 +10,11 @@
     <yh-block-title title="测试插槽标题">
       <i slot="icon" class="el-icon-edit slot-icon"></i>
     </yh-block-title>
+    <yh-switch-datepicker
+      v-model="timeValue"
+      :element-config="weekConfig"
+      @change-type="changeType"
+    ></yh-switch-datepicker>
     <yh-card shadow="hover">
       <div slot="header">
         <yh-block-title title="测试标题"></yh-block-title>
@@ -18,11 +23,6 @@
     </yh-card>
     <yh-week-range :week-times.sync="weekTimes" :week-config="weekConfig"></yh-week-range>
     <el-button @click="showValue">showValue</el-button>
-    <yh-switch-datepicker
-      v-model="timeValue"
-      :element-config="weekConfig"
-      @change-type="changeType"
-    ></yh-switch-datepicker>
     <yh-num-counts v-model="counts" :duration="5"></yh-num-counts>
   </div>
 </template>

@@ -2,6 +2,7 @@
   <div class="yh-switch-datepicker clear">
     <div class="yh-switch-datepicker-input">
       <el-date-picker
+        :key="activeType"
         v-model="timeValue"
         :clearable="false"
         size="small"
