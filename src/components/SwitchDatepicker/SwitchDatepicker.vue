@@ -83,7 +83,9 @@ export default {
   methods: {
     changeType(item) {
       const vm = this;
+      if (vm.activeType === item) return;
       vm.activeType = item;
+      vm.$emit('change-type', item);
     },
     changeTime() {
       const vm = this;

@@ -18,7 +18,11 @@
     </yh-card>
     <yh-week-range :week-times.sync="weekTimes" :week-config="weekConfig"></yh-week-range>
     <el-button @click="showValue">showValue</el-button>
-    <yh-switch-datepicker v-model="timeValue" :element-config="weekConfig"></yh-switch-datepicker>
+    <yh-switch-datepicker
+      v-model="timeValue"
+      :element-config="weekConfig"
+      @change-type="changeType"
+    ></yh-switch-datepicker>
     <yh-num-counts v-model="counts" :duration="5"></yh-num-counts>
   </div>
 </template>
@@ -123,6 +127,9 @@ export default {
     search() {},
     showValue() {
       console.log(this.timeValue);
+    },
+    changeType(val) {
+      console.log(val);
     },
   },
 };
