@@ -9,8 +9,8 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: isProd ? '/dist/' : '/',
+    path: path.resolve(__dirname, 'lib'),
+    publicPath: isProd ? '/lib/' : '/',
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.less'],
