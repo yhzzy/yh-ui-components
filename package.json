@@ -3,7 +3,7 @@
   "sideEffects": [
     "*.vue"
   ],
-  "version": "0.6.15",
+  "version": "0.6.17",
   "description": "yh-ui-components",
   "private": false,
   "scripts": {
@@ -30,7 +30,7 @@
     "components"
   ],
   "files": [
-    "dist",
+    "lib",
     "src/components"
   ],
   "dependencies": {
