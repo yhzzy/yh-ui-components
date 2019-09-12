@@ -3,14 +3,15 @@
   "sideEffects": [
     "*.vue"
   ],
-  "version": "0.6.11",
+  "version": "0.6.12",
   "description": "yh-ui-components",
   "private": false,
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --profile --progress --config webpack.prod.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --progress --config webpack.dev.js",
     "test": "cross-env NODE_ENV=production webpack --profile --progress --config webpack.test.js",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "patch": "npm version patch"
   },
   "author": "yhzzy <176145910@qq.com>",
   "license": "MIT",
