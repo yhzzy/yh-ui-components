@@ -3,7 +3,7 @@
   "sideEffects": [
     "*.vue"
   ],
-  "version": "0.6.17",
+  "version": "0.6.18",
   "description": "yh-ui-components",
   "private": false,
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "yhzzy <176145910@qq.com>",
   "license": "MIT",
   "main": "lib/yhUI.min.js",
-  "style": "lib/css/yhUI.css",
+  "style": "lib/yhUIStyle.min.js",
   "homepage": "git+https://github.com/yhzzy/yh-ui-components.git",
   "bugs": {
     "url": "https://github.com/yhzzy/yh-ui-components/issues"
