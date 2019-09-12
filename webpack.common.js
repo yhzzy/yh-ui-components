@@ -5,7 +5,6 @@ const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: {
-    yhUIStyle: './src/style.js',
     yhUI: isProd ? './src/index.js' : './src/main.js',
   },
   output: {
