@@ -92,6 +92,10 @@ export default {
       const vm = this;
       vm.$emit('input', vm.timeValue);
     },
+    updateVal(val) {
+      const vm = this;
+      vm.timeValue = val;
+    },
   },
 };
 </script>
