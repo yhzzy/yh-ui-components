@@ -9,8 +9,7 @@
         },
         "useBuiltIns": "usage",
         "corejs": 2
-      },
-      "stage-2"
+      }
     ]
   ],
   "plugins": [
