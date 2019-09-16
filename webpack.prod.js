@@ -20,6 +20,8 @@ module.exports = merge(common, {
     library: 'YhUI',
     libraryTarget: 'umd',
     umdNamedDefine: true,
+    libraryExport: 'default',
+    globalObject: 'typeof self !== \'undefined\' ? self : this',
   },
   module: {
     rules: [
