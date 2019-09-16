@@ -23,7 +23,8 @@
     </yh-card>
     <yh-week-range :week-times.sync="weekTimes" :week-config="weekConfig"></yh-week-range>
     <el-button @click="showValue">showValue</el-button>
-    <yh-num-counts v-model="counts" :duration="5"></yh-num-counts>
+    <el-button @click="setCounts">setValue</el-button>
+    <yh-num-counts v-model="counts" :duration="1"></yh-num-counts>
   </div>
 </template>
 
@@ -130,6 +131,10 @@ export default {
     },
     changeType(val) {
       console.log(val);
+    },
+    setCounts() {
+      const vm = this;
+      vm.counts = 9999;
     },
   },
 };

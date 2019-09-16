@@ -24,22 +24,28 @@ export default {
       counts: 0,
     };
   },
+  watch: {
+    value(newValue) {
+      const vm = this;
+      vm.numberGrow(newValue);
+    },
+  },
   mounted() {
     const vm = this;
-    vm.numberGrow();
+    vm.numberGrow(vm.value);
   },
   methods: {
-    numberGrow() {
+    numberGrow(num) {
       const vm = this;
       const { decimal } = vm;
-      const step = (vm.value * 10) / (vm.duration * 1000);
+      const step = (num * 10) / (vm.duration * 1000);
       let current = 0;
       let start = 0;
       let t = setInterval(() => {
         start += step;
-        if (start > vm.value) {
+        if (start > num) {
           clearInterval(t);
-          start = vm.value;
+          start = num;
           t = null;
         }
         if (current === start) {
