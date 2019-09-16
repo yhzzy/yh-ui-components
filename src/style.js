@@ -1,1 +1,1 @@
-import './assets/common.less';
+require('./assets/common.less');
