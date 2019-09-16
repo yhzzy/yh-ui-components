@@ -18,7 +18,7 @@ module.exports = merge(common, {
   output: {
     filename: '[name].min.js',
     library: 'YhUI',
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs2',
     umdNamedDefine: true,
     libraryExport: 'default',
     globalObject: 'typeof self !== \'undefined\' ? self : this',
