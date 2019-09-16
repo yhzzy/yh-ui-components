@@ -49,10 +49,12 @@ export default {
           t = null;
         }
         if (current === start) {
-          return;
+          vm.counts = current;
+          return vm.counts;
         }
         current = start;
         vm.counts = current.toFixed(decimal);
+        return vm.counts;
       }, 10);
     },
   },

@@ -134,7 +134,7 @@ export default {
     },
     setCounts() {
       const vm = this;
-      vm.counts = 9999;
+      vm.counts = 0;
     },
   },
 };
