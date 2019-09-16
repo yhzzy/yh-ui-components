@@ -1,5 +1,5 @@
 <template>
-  <div class="yh-switch-datepicker clear">
+  <div class="yh-ui yh-switch-datepicker clear">
     <div class="yh-switch-datepicker-input">
       <el-date-picker
         :key="activeType"

@@ -1,5 +1,5 @@
 <template>
-  <div class="yh-query">
+  <div class="yh-ui yh-query">
     <el-form :inline="true" :model="queryParams" v-bind="{ ...elementFormConfig }">
       <el-form-item
         v-for="(item, index) in config"

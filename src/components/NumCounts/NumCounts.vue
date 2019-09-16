@@ -1,5 +1,5 @@
 <template>
-  <span class="yh-num-counts">{{ counts }}</span>
+  <span class="yh-ui yh-num-counts">{{ counts }}</span>
 </template>
 
 <script>

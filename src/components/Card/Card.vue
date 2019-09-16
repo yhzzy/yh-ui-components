@@ -1,5 +1,5 @@
 <template>
-  <div class="yh-card" :class="shadow ? 'is-' + shadow + '-shadow' : 'is-never-shadow'">
+  <div class="yh-ui yh-card" :class="shadow ? 'is-' + shadow + '-shadow' : 'is-never-shadow'">
     <div v-if="$slots.header" class="yh-card-header" :style="headerStyle">
       <slot name="header"></slot>
     </div>

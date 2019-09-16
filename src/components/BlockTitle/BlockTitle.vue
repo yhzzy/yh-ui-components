@@ -1,5 +1,5 @@
 <template>
-  <div class="yh-block-title">
+  <div class="yh-ui yh-block-title">
     <slot class="yh-block-title-icon__slot" name="icon">
       <span class="yh-block-title-icon"></span>
     </slot>

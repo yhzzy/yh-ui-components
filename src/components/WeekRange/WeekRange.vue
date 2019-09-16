@@ -1,5 +1,5 @@
 <template>
-  <div class="yh-week-range">
+  <div class="yh-ui yh-week-range">
     <el-date-picker
       v-model="weekTimesNumData"
       type="daterange"

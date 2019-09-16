@@ -1,41 +1,35 @@
 @import "color";
 @import "less/all";
 
-html,
-body {
-  height: 100%;
-}
+.yh-ui {
+  ul {
+    margin-left: 0;
+    padding-left: 0;
+  }
 
-body {
-  color: @mainFontColor;
-  padding: 0;
-  margin: 0;
-  font: 14px/20px 'Hiragino Sans GB', 'Microsoft Yahei', SimSun, Arial, 'Helvetica Neue', Helvetica;
-  background: #fff;
-}
-
-ul {
-  margin-left: 0;
-  padding-left: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
-p, h1, h2, h3, h4, h5 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.clear {
-  overflow: hidden;
-}
-
-.clear::before,
-.clear::after {
-  display: table;
-  content: '';
+  li {
+    list-style-type: none;
+  }
+  p, h1, h2, h3, h4, h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .clear {
+    overflow: hidden;
+  }
+  .clear::before,
+  .clear::after {
+    display: table;
+    content: '';
+  }
+  &.clear {
+    overflow: hidden;
+  }
+  &.clear::before,
+  &.clear::after {
+    display: table;
+    content: '';
+  }
 }
 
 .yh-main-font-color {
