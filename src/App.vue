@@ -24,6 +24,7 @@
     <yh-week-range :week-times.sync="weekTimes" :week-config="weekConfig"></yh-week-range>
     <el-button @click="showValue">showValue</el-button>
     <el-button @click="setCounts">setValue</el-button>
+    <el-button @click="nextCounts">nextCounts</el-button>
     <yh-num-counts v-model="counts" :duration="1"></yh-num-counts>
   </div>
 </template>
@@ -33,7 +34,7 @@ export default {
   name: 'App',
   data() {
     return {
-      counts: 126560,
+      counts: 733,
       model: {
         name: '',
         age: '',
@@ -135,6 +136,10 @@ export default {
     setCounts() {
       const vm = this;
       vm.counts = 0;
+    },
+    nextCounts() {
+      const vm = this;
+      vm.counts = 733;
     },
   },
 };

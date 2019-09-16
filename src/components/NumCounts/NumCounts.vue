@@ -39,6 +39,7 @@ export default {
       const vm = this;
       const { decimal } = vm;
       const step = (num * 10) / (vm.duration * 1000);
+      vm.counts = 0;
       let current = 0;
       let start = 0;
       let t = setInterval(() => {
@@ -49,12 +50,10 @@ export default {
           t = null;
         }
         if (current === start) {
-          vm.counts = current;
-          return vm.counts;
+          return;
         }
         current = start;
         vm.counts = current.toFixed(decimal);
-        return vm.counts;
       }, 10);
     },
   },
