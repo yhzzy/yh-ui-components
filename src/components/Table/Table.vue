@@ -5,7 +5,7 @@
         v-for="column in columns"
         :key="column.prop"
         :prop="column.prop"
-        label="日期"
+        :label="column.label"
         v-bind="{ ...column.elementConfig }"
       ></el-table-column>
       <slot name="temp"></slot>
