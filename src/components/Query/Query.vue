@@ -44,6 +44,26 @@
             </el-option-group>
           </div>
         </el-select>
+        <el-date-picker
+          v-if="item.type === 'datetimeRange'"
+          v-model="queryParams[item.prop]"
+          v-bind="{ ...item.elementConfig }"
+          type="datetimerange"
+          range-separator="至"
+          start-placeholder="开始时间"
+          end-placeholder="结束时间"
+        >
+        </el-date-picker>
+        <el-date-picker
+          v-if="item.type === 'dateRange'"
+          v-model="queryParams[item.prop]"
+          v-bind="{ ...item.elementConfig }"
+          type="daterange"
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+        >
+        </el-date-picker>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" v-bind="{ ...elementBtnConfig }" @click="searchForm(false)">
