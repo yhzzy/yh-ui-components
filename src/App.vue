@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <yh-query :model="model" :config="config" @search="search"></yh-query>
+    <yh-query :model="model" model-name="model" :config="config" @search="search"></yh-query>
     <yh-dashboard-card>
       <p slot="title">测试标题</p>
       <p>556</p>
@@ -126,7 +126,13 @@ export default {
     };
   },
   methods: {
-    search() {},
+    search(params) {
+      const vm = this;
+      const { queryParams } = params;
+      vm.model = {
+        ...queryParams,
+      };
+    },
     showValue() {
       console.log(this.timeValue);
     },

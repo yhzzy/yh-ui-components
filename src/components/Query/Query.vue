@@ -85,6 +85,10 @@ export default {
       type: Object,
       required: true,
     },
+    modelName: {
+      type: String,
+      required: true,
+    },
     config: {
       type: Array,
       required: true,
@@ -111,7 +115,7 @@ export default {
   data() {
     return {
       queryParams: {
-        ...this.$props.model,
+        ...this.model,
       },
     };
   },
@@ -119,7 +123,7 @@ export default {
     searchForm(isReset) {
       const vm = this;
       if (isReset) {
-        Object.assign(vm.$data.queryParams, vm.$options.propsData.model);
+        Object.assign(vm.$data.queryParams, vm.$parent.$options.data()[vm.modelName]);
       }
       const { queryParams } = vm;
       vm.$emit('search', {
