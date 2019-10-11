@@ -122,7 +122,10 @@ export default {
         Object.assign(vm.$data.queryParams, vm.$options.propsData.model);
       }
       const { queryParams } = vm;
-      vm.$emit('search', queryParams);
+      vm.$emit('search', {
+        queryParams,
+        isReset,
+      });
     },
   },
 };
