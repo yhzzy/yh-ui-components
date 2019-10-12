@@ -72,6 +72,7 @@
         <el-button type="primary" v-bind="{ ...elementBtnConfig }" @click="searchForm(true)">
           重置
         </el-button>
+        <slot name="moreBtn"></slot>
       </el-form-item>
     </el-form>
   </div>
