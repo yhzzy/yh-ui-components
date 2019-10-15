@@ -66,10 +66,20 @@
         </el-date-picker>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" v-bind="{ ...elementBtnConfig }" @click="searchForm(false)">
+        <el-button
+          v-if="!customSearch"
+          type="primary"
+          v-bind="{ ...elementBtnConfig }"
+          @click="searchForm(false)"
+        >
           查询
         </el-button>
-        <el-button type="primary" v-bind="{ ...elementBtnConfig }" @click="searchForm(true)">
+        <el-button
+          v-if="!customReset"
+          type="primary"
+          v-bind="{ ...elementBtnConfig }"
+          @click="searchForm(true)"
+        >
           重置
         </el-button>
         <slot name="moreBtn"></slot>
@@ -89,6 +99,14 @@ export default {
     modelName: {
       type: String,
       required: true,
+    },
+    customSearch: {
+      type: Boolean,
+      default: false,
+    },
+    customReset: {
+      type: Boolean,
+      default: false,
     },
     config: {
       type: Array,

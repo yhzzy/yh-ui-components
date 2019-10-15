@@ -3,7 +3,7 @@
   "sideEffects": [
     "*.vue"
   ],
-  "version": "0.7.7",
+  "version": "0.7.8",
   "description": "yh-ui-components",
   "private": false,
   "scripts": {
