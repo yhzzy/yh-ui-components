@@ -144,6 +144,20 @@ export default {
       },
     };
   },
+  watch: {
+    model(newVal, oldVal) {
+      const vm = this;
+      // eslint-disable-next-line no-restricted-syntax
+      for (const x in newVal) {
+        if (x && newVal[x] !== oldVal[x]) {
+          vm.queryParams = {
+            ...vm.queryParams,
+          };
+          vm.queryParams[x] = newVal[x];
+        }
+      }
+    },
+  },
   methods: {
     searchForm(isReset) {
       const vm = this;
