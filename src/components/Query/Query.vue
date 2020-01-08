@@ -11,11 +11,13 @@
           v-if="item.type === 'input'"
           v-model="queryParams[item.prop]"
           v-bind="{ ...item.elementConfig }"
+          v-on="{ ...item.eventConfig }"
         ></el-input>
         <el-select
           v-if="item.type === 'select'"
           v-model="queryParams[item.prop]"
           v-bind="{ ...item.elementConfig }"
+          v-on="{ ...item.eventConfig }"
         >
           <div v-if="!item.optionGroup">
             <el-option
@@ -52,6 +54,7 @@
           range-separator="至"
           start-placeholder="开始时间"
           end-placeholder="结束时间"
+          v-on="{ ...item.eventConfig }"
         >
         </el-date-picker>
         <el-date-picker
@@ -62,6 +65,7 @@
           range-separator="至"
           start-placeholder="开始日期"
           end-placeholder="结束日期"
+          v-on="{ ...item.eventConfig }"
         >
         </el-date-picker>
       </el-form-item>
@@ -71,6 +75,7 @@
           type="primary"
           v-bind="{ ...elementBtnConfig }"
           @click="searchForm(false)"
+          v-on="{ ...item.eventBtnConfig }"
         >
           查询
         </el-button>
@@ -79,6 +84,7 @@
           type="primary"
           v-bind="{ ...elementBtnConfig }"
           @click="searchForm(true)"
+          v-on="{ ...item.eventBtnConfig }"
         >
           重置
         </el-button>

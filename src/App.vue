@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <el-input v-model="mydata['1']"></el-input>
     <yh-query :model="model" model-name="model" :config="config" @search="search"></yh-query>
     <yh-dashboard-card>
       <p slot="title">测试标题</p>
@@ -114,6 +115,7 @@ export default {
         },
       ],
       weekTimes: '',
+      mydata: new Map(),
       weekConfig: {
         pickerOptions: {
           disabledDate: time => {
@@ -124,6 +126,11 @@ export default {
       },
       timeValue: Date.now(),
     };
+  },
+  created() {
+    this.mydata['1'] = 'aaa';
+    this.mydata.set('2', '111');
+    console.log(this.mydata);
   },
   methods: {
     search(params) {
