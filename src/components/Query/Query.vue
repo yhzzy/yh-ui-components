@@ -10,14 +10,14 @@
         <el-input
           v-if="item.type === 'input'"
           v-model="queryParams[item.prop]"
-          v-bind="{ ...item.elementConfig }"
-          v-on="{ ...item.eventConfig }"
+          v-bind="convertItem(item, 'elementConfig')"
+          v-on="convertItem(item, 'eventConfig')"
         ></el-input>
         <el-select
           v-if="item.type === 'select'"
           v-model="queryParams[item.prop]"
-          v-bind="{ ...item.elementConfig }"
-          v-on="{ ...item.eventConfig }"
+          v-bind="convertItem(item, 'elementConfig')"
+          v-on="convertItem(item, 'eventConfig')"
         >
           <div v-if="!item.optionGroup">
             <el-option
@@ -49,23 +49,23 @@
         <el-date-picker
           v-if="item.type === 'datetimeRange'"
           v-model="queryParams[item.prop]"
-          v-bind="{ ...item.elementConfig }"
           type="datetimerange"
           range-separator="至"
           start-placeholder="开始时间"
           end-placeholder="结束时间"
-          v-on="{ ...item.eventConfig }"
+          v-bind="convertItem(item, 'elementConfig')"
+          v-on="convertItem(item, 'eventConfig')"
         >
         </el-date-picker>
         <el-date-picker
           v-if="item.type === 'dateRange'"
           v-model="queryParams[item.prop]"
-          v-bind="{ ...item.elementConfig }"
           type="daterange"
           range-separator="至"
           start-placeholder="开始日期"
           end-placeholder="结束日期"
-          v-on="{ ...item.eventConfig }"
+          v-bind="convertItem(item, 'elementConfig')"
+          v-on="convertItem(item, 'eventConfig')"
         >
         </el-date-picker>
       </el-form-item>
@@ -75,7 +75,7 @@
           type="primary"
           v-bind="{ ...elementBtnConfig }"
           @click="searchForm(false)"
-          v-on="{ ...item.eventBtnConfig }"
+          v-on="{ ...eventBtnConfig }"
         >
           查询
         </el-button>
@@ -84,7 +84,7 @@
           type="primary"
           v-bind="{ ...elementBtnConfig }"
           @click="searchForm(true)"
-          v-on="{ ...item.eventBtnConfig }"
+          v-on="{ ...eventBtnConfig }"
         >
           重置
         </el-button>
@@ -136,6 +136,18 @@ export default {
         return {};
       },
     },
+    eventConfig: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
+    eventBtnConfig: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
   },
   data() {
     return {
@@ -145,6 +157,12 @@ export default {
     };
   },
   methods: {
+    convertItem(item, type) {
+      if (item[type]) {
+        return { ...item[type] };
+      }
+      return {};
+    },
     searchForm(isReset) {
       const vm = this;
       if (isReset) {

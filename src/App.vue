@@ -27,6 +27,7 @@
     <el-button @click="setCounts">setValue</el-button>
     <el-button @click="nextCounts">nextCounts</el-button>
     <yh-num-counts v-model="counts" :duration="1"></yh-num-counts>
+    <yh-count-to :config="countsConfig"></yh-count-to>
   </div>
 </template>
 
@@ -36,6 +37,14 @@ export default {
   data() {
     return {
       counts: 733,
+      countsConfig: {
+        startVal: 0,
+        endVal: 25678.3556,
+        duration: 3000,
+        decimals: 2,
+        suffix: '万',
+        prefix: '￥',
+      },
       model: {
         name: '',
         age: '',
