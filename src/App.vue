@@ -12,10 +12,14 @@
       <i slot="icon" class="el-icon-edit slot-icon"></i>
     </yh-block-title>
     <yh-switch-datepicker
+      ref="switchDatepicker"
       v-model="timeValue"
+      :hour.sync="hour"
       :element-config="weekConfig"
+      :types="['hour', 'date', 'week', 'month']"
       @change-type="changeType"
     ></yh-switch-datepicker>
+    <el-button type="primary" @click="testTime">testTime</el-button>
     <yh-card shadow="hover">
       <div slot="header">
         <yh-block-title title="测试标题"></yh-block-title>
@@ -133,15 +137,33 @@ export default {
           firstDayOfWeek: 1,
         },
       },
-      timeValue: Date.now(),
+      timeValue: '',
+      hour: '',
+      formatTime: {
+        date: val => this.$moment(val).format('YYYY-MM-DD'),
+        week: val =>
+          this.$moment(val)
+            .endOf('isoWeek')
+            .format('YYYY-MM-DD'),
+        month: val =>
+          this.$moment(val)
+            .endOf('month')
+            .format('YYYY-MM-DD'),
+        hour: val => `${this.$moment(val).format('YYYY-MM-DD')} ${this.hour}`,
+      },
     };
   },
   created() {
     this.mydata['1'] = 'aaa';
     this.mydata.set('2', '111');
-    console.log(this.mydata);
+    this.timeValue = this.$moment(Date.now()).format('YYYY-MM-DD HH:00');
+    this.hour = this.$moment(Date.now()).format('HH:00');
   },
   methods: {
+    testTime() {
+      const vm = this;
+      console.log(vm.timeValue);
+    },
     search(params) {
       const vm = this;
       const { queryParams } = params;
@@ -152,8 +174,21 @@ export default {
     showValue() {
       console.log(this.timeValue);
     },
-    changeType(val) {
-      console.log(val);
+    changeType(type) {
+      const vm = this;
+      console.log(type);
+      console.log(vm.timeValue);
+      console.log(vm.hour);
+      vm.type = type;
+      const timeValueOf = vm.$moment(vm.timeValue).valueOf();
+      const now = Date.now();
+      let time;
+      if ((type === 'date' || type === 'week') && timeValueOf > now) {
+        time = vm.formatTime[type](now);
+      } else {
+        time = vm.formatTime[type](vm.timeValue);
+      }
+      vm.$refs.switchDatepicker.updateVal(time);
     },
     setCounts() {
       const vm = this;
