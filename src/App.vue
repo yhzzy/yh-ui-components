@@ -163,7 +163,6 @@ export default {
     testTime() {
       const vm = this;
       console.log(vm.timeValue);
-      console.log(1);
     },
     search(params) {
       const vm = this;
