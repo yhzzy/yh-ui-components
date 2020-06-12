@@ -13,6 +13,7 @@
       <el-time-select
         v-if="activeType === 'hour'"
         v-model="hourValue"
+        :clearable="false"
         size="small"
         :picker-options="{
           start: '00:00',
