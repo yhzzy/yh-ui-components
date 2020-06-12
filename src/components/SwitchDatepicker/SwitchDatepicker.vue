@@ -11,7 +11,7 @@
       >
       </el-date-picker>
       <el-time-select
-        v-if="activeType === 'hour'"
+        v-if="activeType === 'hour' && showHourInput"
         v-model="hourValue"
         :clearable="false"
         size="small"
@@ -51,6 +51,10 @@ export default {
     hour: {
       type: String,
       default: '',
+    },
+    showHourInput: {
+      type: Boolean,
+      default: false,
     },
     types: {
       type: Array,
@@ -128,8 +132,13 @@ export default {
     },
     changeTime() {
       const vm = this;
-      const { activeType, timeValue, hourValue } = vm;
-      const currentTime = activeType !== 'hour' ? timeValue : `${timeValue} ${hourValue}`;
+      let currentTime;
+      const { activeType, timeValue, hourValue, showHourInput } = vm;
+      if (activeType !== 'hour') {
+        currentTime = timeValue;
+      } else {
+        currentTime = showHourInput ? `${timeValue} ${hourValue}` : timeValue;
+      }
       vm.$emit('input', currentTime);
     },
     updateVal(val) {

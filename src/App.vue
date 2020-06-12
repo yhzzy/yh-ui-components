@@ -14,7 +14,6 @@
     <yh-switch-datepicker
       ref="switchDatepicker"
       v-model="timeValue"
-      :hour.sync="hour"
       :element-config="weekConfig"
       :types="['hour', 'date', 'week', 'month']"
       @change-type="changeType"
