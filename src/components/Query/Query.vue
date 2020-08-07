@@ -68,6 +68,36 @@
           v-on="convertItem(item, 'eventConfig')"
         >
         </el-date-picker>
+        <el-date-picker
+          v-if="item.type === 'switchDateType'"
+          v-model="queryParams[item.prop]"
+          :type="switchDateType[item.switchDateType.prop].currentType"
+          range-separator="至"
+          :start-placeholder="`开始${switchDateType[item.switchDateType.prop].currentTip}`"
+          :end-placeholder="`结束${switchDateType[item.switchDateType.prop].currentTip}`"
+          :value-format="switchDateType[item.switchDateType.prop].format"
+          v-bind="convertItem(item, 'elementConfig')"
+          v-on="convertItem(item, 'eventConfig')"
+        >
+        </el-date-picker>
+        <div
+          v-if="item.switchDateType"
+          style="display: inline-block; vertical-align: bottom;"
+          class="yh-switch-datepicker-type"
+        >
+          <el-radio-group
+            v-model="queryParams[item.switchDateType.prop]"
+            @change="changeDateType($event, item.switchDateType)"
+          >
+            <el-radio-button
+              v-for="type in item.switchDateType.types"
+              :key="type.value"
+              :label="type.value"
+            >
+              {{ type.label }}
+            </el-radio-button>
+          </el-radio-group>
+        </div>
       </el-form-item>
       <el-form-item>
         <el-button
@@ -154,7 +184,24 @@ export default {
       queryParams: {
         ...this.model,
       },
+      switchDateType: {},
     };
+  },
+  async created() {
+    const vm = this;
+    const { config } = vm;
+    await config.forEach(d => {
+      if (d.type === 'switchDateType') {
+        const {
+          switchDateType: { prop, currentType, currentTip, format },
+        } = d;
+        vm.$set(vm.switchDateType, prop, {
+          currentType,
+          currentTip,
+          format,
+        });
+      }
+    });
   },
   methods: {
     convertItem(item, type) {
@@ -172,6 +219,26 @@ export default {
       vm.$emit('search', {
         queryParams,
         isReset,
+      });
+    },
+    changeDateType(value, item) {
+      const vm = this;
+      const { prop, types } = item;
+      let type;
+      for (let i = 0, len = types.length; i < len; i += 1) {
+        if (types[i].value === value) {
+          type = types[i];
+          break;
+        }
+      }
+      const { typeValue, placeholderTip } = type;
+      if (!vm.switchDateType[prop]) {
+        vm.switchDateType[prop] = {};
+      }
+      vm.switchDateType[prop].currentType = typeValue;
+      vm.switchDateType[prop].currentTip = placeholderTip;
+      vm.$emit('update:model', {
+        ...vm.queryParams,
       });
     },
     updateQuery(attr, val) {

@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <el-input v-model="mydata['1']"></el-input>
-    <yh-query :model="model" model-name="model" :config="config" @search="search"></yh-query>
+    <yh-query
+      :model.sync="model"
+      model-name="model"
+      :config.sync="config"
+      @search="search"
+    ></yh-query>
     <yh-dashboard-card>
       <p slot="title">测试标题</p>
       <p>556</p>
@@ -50,6 +55,8 @@ export default {
       },
       model: {
         name: '',
+        time: '',
+        timeType: 2,
         age: '',
         sexy: '',
         loveCity: '',
@@ -125,6 +132,31 @@ export default {
             },
           ],
         },
+        {
+          type: 'switchDateType',
+          prop: 'time',
+          switchDateType: {
+            prop: 'timeType',
+            currentType: 'daterange',
+            currentTip: '日期',
+            types: [
+              {
+                label: '月',
+                typeValue: 'monthrange',
+                value: 1,
+                placeholderTip: '月份',
+                format: 'yyyy-MM',
+              },
+              {
+                label: '日',
+                typeValue: 'daterange',
+                value: 2,
+                placeholderTip: '日期',
+                format: 'yyyy-MM-dd',
+              },
+            ],
+          },
+        },
       ],
       weekTimes: '',
       mydata: new Map(),
@@ -166,6 +198,7 @@ export default {
     search(params) {
       const vm = this;
       const { queryParams } = params;
+      console.log(queryParams);
       vm.model = {
         ...queryParams,
       };
